@@ -1,0 +1,302 @@
+/* VARIABLES - warna dan settings global */
+:root {
+    --primary-soft: #f0f8ff;
+    --primary-light: #b3d9ff;
+    --primary-medium: #66aaff;
+    --primary-dark: #3385ff;
+    --accent: #4d94ff;
+    --text-dark: #2c3e50;
+    --text-medium: #5d6d7e;
+    --text-light: #ffffff;
+    --card-bg: #ffffff;
+    --shadow: 0 8px 25px rgba(51, 133, 255, 0.08);
+    --urgent: #ff6b6b;
+    --high: #ffa94d;
+    --medium: #ffd93d;
+    --low: #6bcf7f;
+    --success: #4CAF50;
+    --warning: #FF9800;
+    --processing: #2196F3;
+}
+
+/* RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--primary-soft);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER - sama di semua halaman */
+header {
+    background: linear-gradient(135deg, var(--primary-medium) 0%, var(--primary-dark) 100%);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.logo span {
+    color: #e6f2ff;
+    font-weight: 300;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* FOOTER - sama di semua halaman */
+footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2b78e4 100%);
+    padding: 3rem 0 1.5rem;
+    color: var(--text-light);
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-section h3:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-light);
+}
+
+.footer-section p {
+    margin-bottom: 12px;
+    color: #e6f2ff;
+    line-height: 1.7;
+}
+
+.footer-section a {
+    color: #e6f2ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    color: #cce5ff;
+    font-size: 0.9rem;
+}
+
+/* UTILITY CLASSES - bisa dipakai di semua halaman */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(51, 133, 255, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(51, 133, 255, 0.4);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    position: relative;
+    font-weight: 600;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-medium);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #d6e4ff;
+    border-radius: 10px;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-medium);
+    background-color: white;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 170, 255, 0.2);
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* RESPONSIVE - sama di semua halaman */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}

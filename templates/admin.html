@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Tanggap Medan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h1>Admin<span>Tanggap</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/complaints"><i class="fas fa-list"></i> Semua Laporan</a></li>
+                    <li><a href="/analytics"><i class="fas fa-chart-bar"></i> Analitik</a></li>
+                    <li><a href="/" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admin Dashboard Content -->
+    <section class="admin-dashboard">
+        <div class="container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <h2>Dashboard Admin</h2>
+                <p>Kelola dan pantau semua pengaduan masyarakat Kota Medan</p>
+                <div class="current-time" id="currentTime"></div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon total-complaints">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalComplaints">0</h3>
+                        <p>Total Laporan</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pendingComplaints">0</h3>
+                        <p>Menunggu</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon processed">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="processedComplaints">0</h3>
+                        <p>Diproses</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="completedComplaints">0</h3>
+                        <p>Selesai</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="btn-action" onclick="refreshData()">
+                        <i class="fas fa-sync-alt"></i> Refresh Data
+                    </button>
+                    <button class="btn-action" onclick="exportToExcel()">
+                        <i class="fas fa-download"></i> Export Excel
+                    </button>
+                    <button class="btn-action" onclick="showAllComplaints()">
+                        <i class="fas fa-list"></i> Lihat Semua Laporan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Complaints Table -->
+            <div class="recent-complaints">
+                <div class="section-header">
+                    <h3>Laporan Terbaru</h3>
+                    <div class="filter-controls">
+                        <select id="statusFilter" onchange="filterComplaints()">
+                            <option value="all">Semua Status</option>
+                            <option value="Diterima">Diterima</option>
+                            <option value="Diproses">Diproses</option>
+                            <option value="Selesai">Selesai</option>
+                        </select>
+                        <select id="priorityFilter" onchange="filterComplaints()">
+                            <option value="all">Semua Prioritas</option>
+                            <option value="Sangat Mendesak">Sangat Mendesak</option>
+                            <option value="Tinggi">Tinggi</option>
+                            <option value="Sedang">Sedang</option>
+                            <option value="Rendah">Rendah</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="complaints-table-container">
+                    <table class="complaints-table" id="complaintsTable">
+                        <thead>
+                            <tr>
+                                <th>ID Laporan</th>
+                                <th>Tanggal</th>
+                                <th>Nama Pelapor</th>
+                                <th>Kategori</th>
+                                <th>Prioritas</th>
+                                <th>Sentimen</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="complaintsTableBody">
+                            <!-- Data akan diisi via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination akan diisi via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complaint Detail Modal -->
+    <div id="complaintModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detail Laporan</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Detail laporan akan diisi via JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Tutup</button>
+                <button class="btn btn-primary" onclick="updateStatus()" id="updateBtn">Update Status</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Update Modal -->
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Update Status Laporan</h3>
+                <span class="close" onclick="closeStatusModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="statusForm">
+                    <input type="hidden" id="currentComplaintId">
+                    <div class="form-group">
+                        <label>Status Saat Ini:</label>
+                        <span id="currentStatus" class="status-badge"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="newStatus">Status Baru:</label>
+                        <select id="newStatus" class="form-control" required>
+                            <option value="Diterima">Diterima</option>
+                            <option value="Diproses">Diproses</option>
+                            <option value="Selesai">Selesai</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminNotes">Catatan Admin:</label>
+                        <textarea id="adminNotes" class="form-control" rows="3" placeholder="Tambahkan catatan untuk pelapor..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeStatusModal()">Batal</button>
+                <button class="btn btn-primary" onclick="submitStatusUpdate()">Simpan Perubahan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Admin Panel</h3>
+                    <p>Sistem Pengelolaan Pengaduan Masyarakat</p>
+                    <p>Kota Medan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="/admin/dashboard">Dashboard</a></p>
+                    <p><a href="/admin/complaints">Semua Laporan</a></p>
+                    <p><a href="/admin/analytics">Analitik</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p><i class="fas fa-envelope"></i> admin@tanggapmedan.go.id</p>
+                    <p><i class="fas fa-phone"></i> (061) 1234567 ext. 101</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Admin Tanggap Medan. Hak akses terbatas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

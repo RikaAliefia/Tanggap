@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Tanggap Medan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h1>Tanggap<span>Medan</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/home"><i class="fas fa-user"></i> Dashboard</a></li>
+                    <li><a href="/status" class="active"><i class="fas fa-search"></i> Status Laporan</a></li>
+                    <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>                              
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Sampaikan Pengaduan, Kami Siap Tanggap</h2>
+            <p>Sistem Informasi Pengaduan Masyarakat Kota Medan yang terintegrasi dengan notifikasi WhatsApp dan analisis prioritas penanganan otomatis untuk respon yang lebih cepat dan tepat.</p>
+            <a href="#form" class="btn">Ajukan Pengaduan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Notifikasi WhatsApp</h3>
+                    <p>Dapatkan update status pengaduan langsung melalui WhatsApp. Cepat, mudah, dan real-time tanpa perlu membuka website.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Analisis Sentimen Otomatis</h3>
+                    <p>Sistem kami menganalisis konten pengaduan untuk menentukan tingkat prioritas penanganan berdasarkan urgensi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Penanganan Cepat</h3>
+                    <p>Pengaduan diprioritaskan berdasarkan analisis sistem, memastikan masalah penting ditangani lebih cepat dan efisien.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complaint Form -->
+    <section class="complaint-form" id="form">
+        <div class="container">
+            <h2 class="section-title">Ajukan Pengaduan</h2>
+            <div class="form-container">
+                <form id="complaintForm">
+                    <div class="form-group">
+                        <label for="category"><i class="fas fa-tags"></i> Kategori Pengaduan</label>
+                        <select id="category" class="form-control" required>
+                            <option value="">Pilih Kategori Pengaduan</option>
+                            <option value="infrastruktur">Infrastruktur & Jalan</option>
+                            <option value="pelayanan">Pelayanan Publik</option>
+                            <option value="lingkungan">Lingkungan & Kebersihan</option>
+                            <option value="keamanan">Keamanan & Ketertiban</option>
+                            <option value="kesehatan">Kesehatan</option>
+                            <option value="pendidikan">Pendidikan</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location"><i class="fas fa-map-marker-alt"></i> Lokasi Kejadian</label>
+                        <input type="text" id="location" class="form-control" placeholder="Masukkan lokasi lengkap kejadian" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description"><i class="fas fa-edit"></i> Deskripsi Pengaduan</label>
+                        <textarea id="description" class="form-control" placeholder="Jelaskan secara detail pengaduan Anda. Semakin detail, semakin mudah kami menanganinya." required></textarea>
+                        <div class="sentiment-info">
+                            <i class="fas fa-info-circle"></i>
+                            Sistem akan menganalisis deskripsi Anda secara otomatis untuk menentukan prioritas penanganan.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">
+                        <i class="fas fa-paper-plane"></i> Kirim Pengaduan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-envelope"></i> info@tanggapmedan.go.id</p>
+                    <p><i class="fas fa-phone"></i> (061) 1234567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Balai Kota No. 1, Medan, Sumatera Utara</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <p><i class="fas fa-clock"></i> Senin - Kamis: 08.00 - 16.00 WIB</p>
+                    <p><i class="fas fa-clock"></i> Jumat: 08.00 - 16.30 WIB</p>
+                    <p><i class="fas fa-clock"></i> Sabtu: 08.00 - 13.00 WIB</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <p><a href="/status">Cek Status Laporan</a></p>
+                    <p><a href="#">Panduan Pengaduan</a></p>
+                    <p><a href="#">FAQ</a></p>
+                    <p><a href="#">Kebijakan Privasi</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tanggap - Sistem Informasi Pengaduan Masyarakat Kota Medan. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Laporan - Tanggap Medan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/status.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h1>Tanggap<span>Medan</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="/status" class="active"><i class="fas fa-search"></i> Status Laporan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Status Page Content -->
+    <section class="status-page">
+        <div class="container status-container">
+            <h2 class="section-title">Status Laporan</h2>
+            
+            <div class="search-box">
+                <h3>Cek Status Pengaduan Anda</h3>
+                <p>Masukkan ID Laporan atau NIK Anda untuk melihat status terbaru pengaduan</p>
+                <div class="search-form">
+                    <input type="text" class="search-input" placeholder="Masukkan ID Laporan (contoh: TG-2023-0876) atau NIK" id="searchInput">
+                    <button class="btn btn-search" id="searchBtn">
+                        <i class="fas fa-search"></i> Cari Laporan
+                    </button>
+                </div>
+            </div>
+            
+            <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Riwayat Pengaduan</h3>
+            
+            <div class="complaint-list" id="complaintList">
+                <!-- Data akan dimuat via JavaScript -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Memuat data pengaduan...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-envelope"></i> info@tanggapmedan.go.id</p>
+                    <p><i class="fas fa-phone"></i> (061) 1234567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Balai Kota No. 1, Medan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <p><i class="fas fa-clock"></i> Senin - Kamis: 08.00 - 16.00 WIB</p>
+                    <p><i class="fas fa-clock"></i> Jumat: 08.00 - 16.30 WIB</p>
+                    <p><i class="fas fa-clock"></i> Sabtu: 08.00 - 13.00 WIB</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <p><a href="/">Beranda</a></p>
+                    <p><a href="/status">Status Laporan</a></p>
+                    <p><a href="/login">Login</a></p>
+                    <p><a href="#">Panduan</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tanggap - Sistem Informasi Pengaduan Masyarakat Kota Medan. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="{{ url_for('static', filename='js/status.js') }}"></script>
+</body>
+</html>

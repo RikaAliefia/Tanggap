@@ -1,0 +1,101 @@
+id,tanggal,nama,no_wa,kategori,laporan,sentimen,prioritas,status
+1,2024-01-03,Andi Saputra,081234567890,Infrastruktur,Jalan berlubang parah di daerah Setiabudi,negatif,Tinggi,Diterima
+2,2024-01-05,Sri Wahyuni,082345678901,Kebersihan,Sampah menumpuk di Pasar Petisah selama 3 hari,negatif,Tinggi,Diproses
+3,2024-02-12,Budi Hartono,083456789012,Kesehatan,Antrian puskesmas Medan Johor terlalu lama,negatif,Sedang,Diterima
+4,2024-02-15,Joko Pratama,081223344556,Transportasi,Angkot berhenti sembarangan di Gatot Subroto,negatif,Sedang,Diproses
+5,2024-03-01,Rina Marlina,082334455667,Keamanan,Sering terjadi pencurian motor di Tembung,negatif,Sangat Mendesak,Diterima
+6,2024-03-07,Hendra Putra,081245678912,Lingkungan,Limbah dari pabrik dekat rumah menimbulkan bau sangat menyengat,negatif,Tinggi,Diproses
+7,2024-03-10,Dewi Anggraini,082256789023,Air Bersih,Air PDAM mati 2 hari di daerah Helvetia,negatif,Tinggi,Selesai
+8,2024-03-12,Muhammad Ikhsan,081234667788,Pendidikan,SD Negeri kekurangan guru kelas,negatif,Sedang,Diterima
+9,2024-03-14,Lisa Purba,082244556677,Sosial,Bantuan sosial belum diterima sejak 2 bulan,negatif,Sedang,Diproses
+10,2024-03-19,Rahmat Hidayat,081256789334,Banjir/Drainase,Parit tersumbat menyebabkan banjir merendam rumah,negatif,Sangat Mendesak,Diterima
+11,2024-03-22,Wahyudi Nasution,082312345678,Infrastruktur,Lampu jalan mati di Jalan Krakatau,negatif,Sedang,Selesai
+12,2024-04-02,Nur Aini,083323456789,Kebersihan,Bau sampah dari TPS liar semakin parah tidak tertahankan,negatif,Tinggi,Diterima
+13,2024-04-05,Herman Sitorus,081234556799,Kesehatan,Obat puskesmas sering kosong,negatif,Tinggi,Diproses
+14,2024-04-11,Siti Mulyani,082344567800,Transportasi,Macet parah karena truk parkir sembarangan,negatif,Tinggi,Diterima
+15,2024-04-15,Daniel Sihombing,083355678901,Keamanan,Ronda malam jarang dilakukan,negatif,Sedang,Selesai
+16,2024-04-18,Winda Saputri,081266789022,Lingkungan,Asap pembakaran sampah masuk rumah warga sangat mengganggu,negatif,Tinggi,Diproses
+17,2024-05-02,Alfian Lubis,082367890133,Air Bersih,Air PDAM keruh keluar dari keran,negatif,Sedang,Diterima
+18,2024-05-04,Rosmaida Perangin,081277890244,Pendidikan,Fasilitas perpustakaan sekolah rusak parah,negatif,Sedang,Diproses
+19,2024-05-10,Yusuf Sinaga,082389012345,Sosial,Warga belum dapat bantuan UMKM,negatif,Sedang,Diterima
+20,2024-05-15,Fauziah Lubis,081298123456,Banjir/Drainase,Drainase tersumbat dekat rumah,negatif,Sedang,Selesai
+21,2024-05-20,Mario Situmorang,081234111222,Infrastruktur,Trotoar rusak dan dipakai pedagang,negatif,Sedang,Diproses
+22,2024-05-25,Nova Sari,082345222333,Kebersihan,Sampah menumpuk di gang kecil dekat rumah,negatif,Sedang,Diterima
+23,2024-06-01,Haryanto,083456333444,Kesehatan,Kamar rawat inap penuh sesak,negatif,Tinggi,Selesai
+24,2024-06-04,Nurhaliza,081234444555,Transportasi,Bus kota tidak tepat waktu,negatif,Rendah,Diterima
+25,2024-06-07,Jamilah,082455555666,Keamanan,Balap liar setiap malam sangat berbahaya,negatif,Sangat Mendesak,Diproses
+26,2024-06-11,Dodi Irawan,083466666777,Lingkungan,Got bau tidak pernah dibersihkan,negatif,Sedang,Diterima
+27,2024-06-14,Putri Syahfitri,081277777888,Air Bersih,Air PDAM mengalir kecil,negatif,Rendah,Diproses
+28,2024-06-20,Nur Hasanah,082488888999,Pendidikan,Kegiatan belajar terganggu karena kebisingan,negatif,Sedang,Selesai
+29,2024-06-22,Tono Tarigan,083499999111,Sosial,Bantuan lansia belum diterima,negatif,Sedang,Diterima
+30,2024-06-25,Indah Pratiwi,081212121212,Banjir/Drainase,Parit kecil meluap saat hujan deras,negatif,Tinggi,Selesai
+31,2024-07-03,Ridho Syahputra,082323232323,Infrastruktur,Jembatan kecil mulai retak berbahaya,negatif,Sangat Mendesak,Diproses
+32,2024-07-05,Eka Lestari,083434343434,Kebersihan,Tempat sampah umum rusak,negatif,Rendah,Diterima
+33,2024-07-09,Agus Yulianto,081245245245,Kesehatan,Ambulans datang terlambat saat darurat,negatif,Sangat Mendesak,Selesai
+34,2024-07-11,Hana Samosir,082356356356,Transportasi,Parkir liar di jalan utama,negatif,Sedang,Diproses
+35,2024-07-14,Jeni Apriani,083467467467,Keamanan,Kecurangan di lingkungan sekitar,negatif,Sedang,Diterima
+36,2024-07-18,Togar Silalahi,081278278278,Lingkungan,Banyak nyamuk karena genangan air,negatif,Sedang,Selesai
+37,2024-07-20,Fitri Amelia,082389389389,Air Bersih,Air sering mati tanpa pemberitahuan,negatif,Tinggi,Diproses
+38,2024-07-25,Fauzan Aditya,083490490490,Pendidikan,Kurikulum sekolah berubah tanpa sosialisasi,netral,Rendah,Diterima
+39,2024-07-28,Sari Melani,081223323323,Sosial,Bantuan sembako tidak merata,negatif,Sedang,Diproses
+40,2024-08-01,Reza Prasetyo,082334434434,Banjir/Drainase,Parit tidak pernah dibersihkan,negatif,Sedang,Selesai
+41,2024-08-03,Maya Lestari,083345545545,Infrastruktur,Jalan setapak licin saat hujan,negatif,Sedang,Diterima
+42,2024-08-06,Anton Wijaya,081256656656,Kebersihan,Sampah plastik memenuhi sungai sangat parah,negatif,Tinggi,Diterima
+43,2024-08-10,Tryana Hutapea,082367767767,Kesehatan,Klinik terlalu penuh,negatif,Sedang,Diproses
+44,2024-08-14,Syahrul Ramadhan,083478878878,Transportasi,Terminal tidak tertata,negatif,Rendah,Selesai
+45,2024-08-16,Nindia Sitorus,081289989989,Keamanan,Banyak anak muda mabuk tengah malam mengganggu,negatif,Tinggi,Diproses
+46,2024-08-18,Eko Junaidi,082300101010,Lingkungan,Pohon tumbang tidak diangkat berbahaya,negatif,Sangat Mendesak,Diterima
+47,2024-08-22,Lina Marpaung,083311212121,Air Bersih,Air sumur keruh setelah hujan,negatif,Sedang,Selesai
+48,2024-08-25,Yanti Juliana,081222232323,Pendidikan,Ruang kelas bocor saat hujan,negatif,Sedang,Diproses
+49,2024-08-27,Slamet Riyadi,082233343434,Sosial,Gangguan distribusi bantuan pangan,negatif,Sedang,Diproses
+50,2024-09-01,Putra Mahendra,083244454545,Banjir/Drainase,Sungai meluap merendam rumah darurat,negatif,Sangat Mendesak,Diterima
+51,2024-09-05,Nadia Khairani,081255565656,Infrastruktur,Rambu lalu lintas hilang,negatif,Sedang,Selesai
+52,2024-09-10,Hafiz Abdullah,082266676767,Kebersihan,Sampah menumpuk karena libur panjang,negatif,Sedang,Diproses
+53,2024-09-12,Mawar Simanjuntak,083277787878,Kesehatan,Luka pasien tidak ditangani dengan baik,negatif,Sangat Mendesak,Diterima
+54,2024-09-15,Donny Bakri,081288898989,Transportasi,Pom bensin kehabisan bensin saat jam sibuk,netral,Rendah,Selesai
+55,2024-09-20,Lukman Hakim,082299909090,Keamanan,Pernah terjadi perampokan di toko,negatif,Sangat Mendesak,Diproses
+56,2024-09-25,Rismawati,083300020202,Lingkungan,Asap pembakaran liar meningkat mengganggu,negatif,Tinggi,Diterima
+57,2024-09-28,Herman Sinurat,081211131313,Air Bersih,Pipa bocor menyebabkan air menggenang,negatif,Sedang,Selesai
+58,2024-10-01,Anita Kurnia,082222242424,Pendidikan,Banyak siswa terlambat,netral,Rendah,Diterima
+59,2024-10-03,Rayhan Akbar,083233353535,Sosial,Bantuan UMKM diduga dipotong oknum,negatif,Tinggi,Diproses
+60,2024-10-06,Dewi Komalasari,081244464646,Banjir/Drainase,Selokan tanpa penutup membahayakan,negatif,Tinggi,Selesai
+61,2024-10-10,Ahmad Fauzi,081234567001,Infrastruktur,Terima kasih jalan sudah diperbaiki dengan baik,positif,Rendah,Selesai
+62,2024-10-12,Sinta Dewi,082345678002,Kebersihan,Apresiasi petugas kebersihan yang rajin,positif,Rendah,Selesai
+63,2024-10-15,Bambang Sutrisno,083456789003,Kesehatan,Pelayanan puskesmas sudah membaik,positif,Rendah,Selesai
+64,2024-10-18,Ratna Sari,081234567004,Transportasi,Angkot sudah lebih tertib sekarang,positif,Rendah,Selesai
+65,2024-10-20,Gunawan Putra,082345678005,Keamanan,Terima kasih ronda sudah aktif kembali,positif,Rendah,Selesai
+66,2024-10-22,Melati Indah,083456789006,Lingkungan,Taman sudah dibersihkan bagus sekali,positif,Rendah,Selesai
+67,2024-10-25,Rudi Hermawan,081234567007,Air Bersih,Air PDAM sudah lancar kembali terima kasih,positif,Rendah,Selesai
+68,2024-10-28,Yuni Astuti,082345678008,Pendidikan,Guru baru sudah ditugaskan bagus,positif,Rendah,Selesai
+69,2024-11-01,Benny Prasetya,083456789009,Sosial,Bantuan sudah diterima lengkap terima kasih,positif,Rendah,Selesai
+70,2024-11-05,Kartini Wulandari,081234567010,Banjir/Drainase,Drainase sudah diperbaiki tidak banjir lagi,positif,Rendah,Selesai
+71,2024-11-08,Sugeng Riyanto,082345678011,Infrastruktur,Lampu jalan sudah menyala kembali bagus,positif,Rendah,Selesai
+72,2024-11-10,Endang Susilowati,083456789012,Kebersihan,Sampah sudah diangkut rutin terima kasih,positif,Rendah,Selesai
+73,2024-11-12,Firman Hidayat,081234567013,Kesehatan,Obat puskesmas sudah tersedia lengkap,positif,Rendah,Selesai
+74,2024-11-15,Lestari Ningrum,082345678014,Transportasi,Terminal sudah lebih rapi dan tertata,positif,Rendah,Selesai
+75,2024-11-18,Darmawan Kusuma,083456789015,Keamanan,Keamanan lingkungan sudah membaik,positif,Rendah,Selesai
+76,2024-11-20,Sulastri,081234567016,Lingkungan,Sungai sudah dibersihkan bersih sekali,positif,Rendah,Selesai
+77,2024-11-22,Arief Rahman,082345678017,Air Bersih,Pipa yang bocor sudah diperbaiki bagus,positif,Rendah,Selesai
+78,2024-11-25,Nurhayati,083456789018,Pendidikan,Fasilitas sekolah sudah diperbaiki,positif,Rendah,Selesai
+79,2024-11-28,Susanto,081234567019,Sosial,Program bantuan berjalan lancar,positif,Rendah,Selesai
+80,2024-12-01,Intan Permata,082345678020,Banjir/Drainase,Parit sudah dibersihkan tidak tersumbat lagi,positif,Rendah,Selesai
+81,2024-12-03,Hadi Santoso,083456789021,Infrastruktur,Informasi jalan ditutup untuk perbaikan,netral,Rendah,Diterima
+82,2024-12-05,Wati Suryani,081234567022,Kebersihan,Jadwal pengangkutan sampah berubah,netral,Rendah,Diterima
+83,2024-12-07,Andi Kurniawan,082345678023,Kesehatan,Puskesmas tutup hari libur nasional,netral,Rendah,Diterima
+84,2024-12-09,Rina Mulyani,083456789024,Transportasi,Rute angkot dialihkan sementara,netral,Rendah,Diterima
+85,2024-12-10,Taufik Hidayat,081234567025,Keamanan,Informasi jadwal ronda minggu ini,netral,Rendah,Diterima
+86,2024-01-08,Dian Purnama,082345678026,Infrastruktur,Jalan rusak berat lubang sangat dalam berbahaya,negatif,Sangat Mendesak,Diterima
+87,2024-01-15,Eko Saputro,083456789027,Keamanan,Terjadi kebakaran di pasar perlu bantuan segera,negatif,Sangat Mendesak,Diproses
+88,2024-02-20,Sari Wulandari,081234567028,Kesehatan,Pasien kritis tidak mendapat penanganan darurat,negatif,Sangat Mendesak,Diterima
+89,2024-03-25,Budi Prakoso,082345678029,Banjir/Drainase,Banjir besar merendam puluhan rumah butuh evakuasi,negatif,Sangat Mendesak,Diproses
+90,2024-04-30,Ratih Kusuma,083456789030,Lingkungan,Tanah longsor mengancam pemukiman bahaya,negatif,Sangat Mendesak,Diterima
+91,2024-05-12,Agung Wibowo,081234567031,Infrastruktur,Tiang listrik roboh menimpa jalan darurat,negatif,Sangat Mendesak,Diproses
+92,2024-06-18,Nina Safitri,082345678032,Keamanan,Kecelakaan lalu lintas parah korban luka berat,negatif,Sangat Mendesak,Diterima
+93,2024-07-22,Hendri Gunawan,083456789033,Kesehatan,Wabah penyakit menyebar di kampung perlu penanganan,negatif,Sangat Mendesak,Diproses
+94,2024-08-28,Dewi Kartika,081234567034,Banjir/Drainase,Jembatan hampir ambruk sangat berbahaya,negatif,Sangat Mendesak,Diterima
+95,2024-09-15,Yoga Pratama,082345678035,Lingkungan,Kebocoran gas dari pabrik bahaya ledakan,negatif,Sangat Mendesak,Diproses
+96,2024-10-08,Sri Mulyani,083456789036,Infrastruktur,Atap gedung sekolah runtuh perlu perbaikan segera,negatif,Sangat Mendesak,Diterima
+97,2024-11-14,Bayu Setiawan,081234567037,Keamanan,Ancaman bom di pusat perbelanjaan,negatif,Sangat Mendesak,Diproses
+98,2024-12-02,Ani Rahayu,082345678038,Kesehatan,Keracunan massal di acara hajatan darurat,negatif,Sangat Mendesak,Diterima
+99,2024-12-08,Joko Widodo,083456789039,Banjir/Drainase,Bendungan hampir jebol perlu evakuasi warga,negatif,Sangat Mendesak,Diproses
+100,2024-12-10,Maria Ulfa,081234567040,Lingkungan,Kebakaran hutan meluas asap tebal bahaya,negatif,Sangat Mendesak,Diterima
