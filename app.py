@@ -114,20 +114,27 @@ def determine_priority(sentiment, description):
 # ================================
 # WhatsApp Gateway (Fonnte)
 # ================================
-FONNTE_TOKEN = "XiSkvtqX5zJFhoV4UVoe"
+FONNTE_TOKEN = ""  # Kosongkan jika tidak menggunakan WhatsApp, isi dengan token Fonnte Anda jika sudah dapat
+ENABLE_WHATSAPP = False  # Ubah ke True setelah mengisi FONNTE_TOKEN
 
 def send_whatsapp(phone, message):
-    if not FONNTE_TOKEN:
+    """Kirim WhatsApp via Fonnte API"""
+    if not ENABLE_WHATSAPP:
+        print("[INFO] WhatsApp notification disabled. Enable by setting ENABLE_WHATSAPP = True")
+        return True  # Return True agar tidak mengganggu proses
+    
+    if not FONNTE_TOKEN or FONNTE_TOKEN == "YOUR_FONNTE_TOKEN":
         print("[WARNING] WhatsApp token not configured. Message not sent.")
         return False
-
+    
     try:
+        # Format nomor telepon ke format internasional
         phone = str(phone).strip()
         if phone.startswith('0'):
             phone = '62' + phone[1:]
         elif not phone.startswith('62'):
             phone = '62' + phone
-
+        
         url = "https://api.fonnte.com/send"
         headers = {
             "Authorization": FONNTE_TOKEN
@@ -137,21 +144,20 @@ def send_whatsapp(phone, message):
             "message": message,
             "countryCode": "62"
         }
-
+        
         response = requests.post(url, headers=headers, data=data, timeout=10)
         result = response.json()
-
+        
         if result.get('status'):
             print(f"[OK] WhatsApp sent to {phone}")
             return True
         else:
             print(f"[ERROR] Failed to send WhatsApp: {result}")
             return False
-
+            
     except Exception as e:
         print(f"[ERROR] WhatsApp error: {e}")
         return False
-
 
 # ================================
 # Database Connection
@@ -370,7 +376,7 @@ def submit_complaint():
         conn.close()
         
         # Kirim WhatsApp Notification ke user
-        if phone:
+        if phone and ENABLE_WHATSAPP:
             wa_message = f"""*TANGGAP MEDAN*
 ━━━━━━━━━━━━━━━━━━
 Pengaduan Anda telah kami terima!
@@ -471,7 +477,7 @@ def update_complaint(complaint_id):
         conn.close()
         
         # Kirim WhatsApp notification ke user
-        if complaint["phone"]:
+        if complaint["phone"] and ENABLE_WHATSAPP:
             status_emoji = {
                 "Diterima": "Diterima",
                 "Diproses": "Sedang Diproses",
@@ -521,8 +527,7 @@ def get_user_complaints():
                 "date": row["created_at"],
                 "category": row["category"],
                 "location": row["location"],
-                "description": row["description"],
-                "sentiment": row["sentiment"],
+                "description": row["description"][:100] + "..." if len(row["description"]) > 100 else row["description"],
                 "priority": row["priority"],
                 "status": row["status"],
                 "admin_notes": row["admin_notes"]
@@ -599,6 +604,46 @@ def analyze_text():
             "priority": "Sedang", 
             "confidence": 0
         })
+
+# ================================
+# Public API Endpoints
+# ================================
+
+@app.route('/api/public/complaints', methods=['GET'])
+def get_public_complaints():
+    """Ambil semua pengaduan untuk ditampilkan di halaman publik dashboard"""
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        # Ambil semua pengaduan tanpa informasi pribadi seperti nomor telepon dan email
+        cur.execute("""
+            SELECT complaint_id, category, location, description, 
+                   sentiment, sentiment_confidence, priority, status, created_at
+            FROM complaints 
+            ORDER BY created_at DESC
+        """)
+        rows = cur.fetchall()
+        conn.close()
+        
+        complaints = []
+        for row in rows:
+            complaints.append({
+                "id": row["complaint_id"],
+                "date": row["created_at"],
+                "category": row["category"],
+                "location": row["location"],
+                "description": row["description"],
+                "sentiment": row["sentiment"],
+                "sentiment_confidence": row["sentiment_confidence"],
+                "priority": row["priority"],
+                "status": row["status"]
+            })
+        
+        return jsonify({"success": True, "complaints": complaints})
+        
+    except Exception as e:
+        print(f"[ERROR] Get public complaints: {e}")
+        return jsonify({"success": False, "message": str(e), "complaints": []}), 500
 
 # ================================
 # Run Application
